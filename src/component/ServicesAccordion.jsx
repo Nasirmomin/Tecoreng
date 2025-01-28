@@ -4,7 +4,7 @@ import Laravel from '../assets/laravelTCE.46e12fe8.svg';
 import Node from '../assets/nodejsTCE.ed01dd43.svg';
 import Angular from '../assets/angularTCE.190d8320.svg';
 import { ChevronRight } from 'lucide-react'; // Importing a chevron arrow icon from lucide-react
-import Laptop from '../assets/webService.682bf358.webp';
+import Laptop from '../../tecoreng.com-svg/meta.svg';
 
 const ServicesAccordion = () => {
   const services = [
@@ -37,19 +37,19 @@ const ServicesAccordion = () => {
   const [activeIndex, setActiveIndex] = useState(null);
 
   return (
-    <div className="w-full max-w-[90%] mx-auto p-4">
-      <h2 className="text-5xl font-bold text-left text-white mb-3 text-shadow-xl">
+    <div className="w-full max-w-[85%] mx-auto p-6">
+      <h2 className="text-5xl font-semibold text-left text-white mb-4 text-shadow-xl">
         Services We Offer
       </h2>
 
-      <div className="mb-20 text-white text-left text-sm">
+      <div className="mb-12 text-white text-left text-base">
         <p>
           We offer a full range of web app development services that make things better for enterprises and companies we work with. Our team of dedicated mobile app developers fulfills your diverse business requirements through a number of services. We specialise in the following services:
         </p>
       </div>
 
       {/* Accordion */}
-      <div className="space-y-10 mt-6">
+      <div className="space-y-12 mt-8">
         {services.map((service, index) => (
           <div
             key={index}
@@ -61,64 +61,48 @@ const ServicesAccordion = () => {
             style={{ borderWidth: '0.5px' }}
           >
             {/* Accordion Header */}
-            <div className="p-4 flex items-center text-lg font-semibold text-white space-x-4">
-              {/* Laptop Image */}
-              <img src={Laptop} alt="Laptop" className="w-8 h-8 object-contain" />
-              <span>{service.title}</span>
+            <div className="p-5 flex items-center justify-between">
+              {/* Left Section: Heading */}
+              <div className="flex-grow flex items-center space-x-4">
+                <img src={Laptop} alt="Laptop" className="w-8 h-8 object-contain" />
+                <span className="text-xl font-semibold text-white">{service.title}</span>
+              </div>
+
+              {/* Right Section: Chevron and Icons (visible only on hover) */}
+              <div className={`flex items-center space-x-4 transition-all duration-300 ease-out ${activeIndex === index ? 'opacity-100' : 'opacity-0'} justify-center`}>
+                <div className="flex justify-center items-center">
+                  <img src={Reactsvg} alt="React Icon" className="w-9 h-9" />
+                </div>
+                <div className="flex justify-center items-center">
+                  <img src={Laravel} alt="Laravel Icon" className="w-9 h-9" />
+                </div>
+                <div className="flex justify-center items-center">
+                  <img src={Node} alt="Node Icon" className="w-9 h-9" />
+                </div>
+                <div className="flex justify-center items-center">
+                  <img src={Angular} alt="Angular Icon" className="w-9 h-9" />
+                </div>
+                {/* Chevron Arrow Icon */}
+                <div className="flex justify-center items-center">
+                  <ChevronRight className="w-7 h-7 text-[#6ec1e4]" />
+                </div>
+              </div>
             </div>
 
             {/* Accordion Content */}
             <div
-              className={`px-4 text-white text-sm flex justify-between items-center transition-all duration-300 ease-out
+              className={`px-5 text-white text-sm flex justify-between items-center transition-all duration-300 ease-out
                 ${activeIndex === index ? 'max-h-screen opacity-100 py-4' : 'max-h-0 opacity-0'}`}
               style={{ overflow: 'hidden' }}
             >
-              {/* Description */}
-              <div className="flex-grow">
-                {/* Split the text into two lines */}
-                <p className="mb-2">
+              {/* Middle Section: Paragraph (only visible on hover) */}
+              <div className={`flex-grow space-y-2 transition-all duration-300 ease-out ${activeIndex === index ? 'opacity-100' : 'opacity-0'}`}>
+                <p className="text-base">
                   {service.details.split(' ').slice(0, 10).join(' ')}...
                 </p>
-                <p>
+                <p className={`text-base transition-all duration-300 ease-out ${activeIndex === index ? 'opacity-100' : 'opacity-0'}`}>
                   {service.details.split(' ').slice(10).join(' ')}
                 </p>
-              </div>
-
-              {/* Icons */}
-              <div className="flex items-center space-x-4">
-                {/* Center the SVGs */}
-                <div className="flex justify-center items-center">
-                  <img
-                    src={Reactsvg}
-                    alt="React Icon"
-                    className="w-10 h-10"
-                  />
-                </div>
-                <div className="flex justify-center items-center">
-                  <img
-                    src={Laravel}
-                    alt="Laravel Icon"
-                    className="w-10 h-10"
-                  />
-                </div>
-                <div className="flex justify-center items-center">
-                  <img
-                    src={Node}
-                    alt="Node Icon"
-                    className="w-10 h-10"
-                  />
-                </div>
-                <div className="flex justify-center items-center">
-                  <img
-                    src={Angular}
-                    alt="Angular Icon"
-                    className="w-10 h-10"
-                  />
-                </div>
-                {/* Chevron Arrow Icon */}
-                <div className="flex justify-center items-center">
-                  <ChevronRight className="w-8 h-8 text-[#6ec1e4]" />
-                </div>
               </div>
             </div>
           </div>

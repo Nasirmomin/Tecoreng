@@ -29,7 +29,7 @@ const EngagementModels = () => {
         {cardData.map((card, index) => (
           <div
             key={index}
-            className="relative bg-[#01132E] text-white shadow-md rounded-2xl border-1 border-white overflow-hidden group min-h-[396px]"
+            className="relative bg-[#01132E] text-white shadow-md rounded-2xl border-1 border-white overflow-hidden group min-h-[396px] transition-all duration-700"
           >
             {/* Pseudo-element for background fill effect */}
             <div className="absolute inset-0 bg-[#81B3FF] transition-all duration-700 ease-in-out h-0 group-hover:h-full group-hover:transition-all group-hover:duration-700 group-hover:ease-in-out"></div>
