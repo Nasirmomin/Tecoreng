@@ -1,0 +1,20 @@
+@keyframes moveAlongPath {
+    0% {
+      offset-distance: 0%;
+    }
+    100% {
+      offset-distance: 100%;
+    }
+  }
+  
+  .animate-infinity {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 48px; /* Adjust size as needed */
+    height: 48px; /* Adjust size as needed */
+    transform: translate(-50%, -50%);
+    offset-path: path('M 100,50 C 0,0 0,100 100,50 C 200,0 200,100 100,50');
+    animation: moveAlongPath 5s linear infinite;
+  }
+  

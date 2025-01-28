@@ -1,0 +1,15 @@
+/* Custom styles for smooth transitions */
+.accordion-content {
+    transition: max-height 0.3s ease, padding 0.3s ease;
+  }
+  
+  .accordion-content.closed {
+    max-height: 0;
+    padding: 0;
+  }
+  
+  .accordion-content.open {
+    max-height: 200px; /* Adjust based on content length */
+    padding: 1rem;
+  }
+  

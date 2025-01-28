@@ -1,0 +1,23 @@
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 100 50"
+  fill="none"
+  width="200"
+  height="100"
+>
+  <!-- Gradient for the infinity loop -->
+  <defs>
+    <linearGradient id="infinityGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FF5F6D" />
+      <stop offset="50%" stop-color="#FFC371" />
+      <stop offset="100%" stop-color="#FF5F6D" />
+    </linearGradient>
+  </defs>
+  <!-- Infinity path -->
+  <path
+    d="M25,25 Q40,5 50,25 T75,25 Q60,45 50,25 T25,25 Z"
+    stroke="url(#infinityGradient)"
+    stroke-width="3"
+    fill="none"
+  />
+</svg>
