@@ -3,6 +3,8 @@ import Reactsvg from '../assets/react-jsTCE.dc2e1b7f.svg';
 import Laravel from '../assets/laravelTCE.46e12fe8.svg';
 import Node from '../assets/nodejsTCE.ed01dd43.svg';
 import Angular from '../assets/angularTCE.190d8320.svg';
+import { ChevronRight } from 'lucide-react'; // Importing a chevron arrow icon from lucide-react
+import Laptop from '../assets/webService.682bf358.webp';
 
 const ServicesAccordion = () => {
   const services = [
@@ -59,8 +61,10 @@ const ServicesAccordion = () => {
             style={{ borderWidth: '0.5px' }}
           >
             {/* Accordion Header */}
-            <div className="p-4 text-lg font-semibold text-white">
-              {service.title}
+            <div className="p-4 flex items-center text-lg font-semibold text-white space-x-4">
+              {/* Laptop Image */}
+              <img src={Laptop} alt="Laptop" className="w-8 h-8 object-contain" />
+              <span>{service.title}</span>
             </div>
 
             {/* Accordion Content */}
@@ -71,31 +75,50 @@ const ServicesAccordion = () => {
             >
               {/* Description */}
               <div className="flex-grow">
-                <p>{service.details}</p>
+                {/* Split the text into two lines */}
+                <p className="mb-2">
+                  {service.details.split(' ').slice(0, 10).join(' ')}...
+                </p>
+                <p>
+                  {service.details.split(' ').slice(10).join(' ')}
+                </p>
               </div>
 
               {/* Icons */}
-              <div className="flex space-x-4">
-                <img
-                  src={Reactsvg}
-                  alt="React Icon"
-                  className="w-10 h-10"
-                />
-                <img
-                  src={Laravel}
-                  alt="Laravel Icon"
-                  className="w-10 h-10"
-                />
-                <img
-                  src={Node}
-                  alt="Node Icon"
-                  className="w-10 h-10"
-                />
-                <img
-                  src={Angular}
-                  alt="Angular Icon"
-                  className="w-10 h-10"
-                />
+              <div className="flex items-center space-x-4">
+                {/* Center the SVGs */}
+                <div className="flex justify-center items-center">
+                  <img
+                    src={Reactsvg}
+                    alt="React Icon"
+                    className="w-10 h-10"
+                  />
+                </div>
+                <div className="flex justify-center items-center">
+                  <img
+                    src={Laravel}
+                    alt="Laravel Icon"
+                    className="w-10 h-10"
+                  />
+                </div>
+                <div className="flex justify-center items-center">
+                  <img
+                    src={Node}
+                    alt="Node Icon"
+                    className="w-10 h-10"
+                  />
+                </div>
+                <div className="flex justify-center items-center">
+                  <img
+                    src={Angular}
+                    alt="Angular Icon"
+                    className="w-10 h-10"
+                  />
+                </div>
+                {/* Chevron Arrow Icon */}
+                <div className="flex justify-center items-center">
+                  <ChevronRight className="w-8 h-8 text-[#6ec1e4]" />
+                </div>
               </div>
             </div>
           </div>
