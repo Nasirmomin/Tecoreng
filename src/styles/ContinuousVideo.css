@@ -6,35 +6,40 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: clamp(1rem, 3vw, 2rem);
+  padding: 1rem;
   box-sizing: border-box;
 }
 
 .video {
-  width: min(90%, 1400px);
-  height: min(80vh, 800px);
-  object-fit: cover;
-  border-radius: clamp(20px, 4vw, 40px);
+  position: relative;
+  width: 100%;
+  max-width: 1400px;
+  height: auto;
+  max-height: 80vh;
+  object-fit: contain;
+  border-radius: 20px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  aspect-ratio: 16/9;
 }
 
 .play-pause-btn {
   position: absolute;
-  bottom: clamp(20px, 5vh, 100px);
-  right: clamp(20px, 5vw, 100px);
-  background-color: #005c99;
+  bottom: 20px;
+  right: 20px;
+  background-color: rgba(0, 92, 153, 0.9);
   color: white;
-  padding: clamp(12px, 2vw, 16px);
+  padding: 12px;
   border-radius: 50%;
   border: none;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: transform 0.2s ease;
   z-index: 10;
   display: flex;
   align-items: center;
   justify-content: center;
-  touch-action: manipulation;
+  width: 45px;
+  height: 45px;
 }
 
 .play-pause-btn:hover {
@@ -47,47 +52,29 @@
 }
 
 .icon {
-  width: clamp(24px, 4vw, 32px);
-  height: clamp(24px, 4vw, 32px);
+  width: 24px;
+  height: 24px;
 }
 
-/* Media Queries */
-@media screen and (max-width: 768px) {
+/* Tablet devices */
+@media screen and (max-width: 1024px) {
   .video-container {
     height: auto;
-    min-height: 100vh;
+    min-height: auto;
     padding: 1rem;
   }
 
   .video {
     width: 100%;
-    height: auto;
-    aspect-ratio: 16/9;
-    border-radius: 20px;
-  }
-
-  .play-pause-btn {
-    bottom: 20px;
-    right: 20px;
-    padding: 12px;
-  }
-
-  .icon {
-    width: 24px;
-    height: 24px;
-  }
-}
-
-/* For very small screens */
-@media screen and (max-width: 480px) {
-  .video {
+    max-height: 70vh;
     border-radius: 15px;
   }
 
   .play-pause-btn {
+    width: 40px;
+    height: 40px;
     bottom: 15px;
     right: 15px;
-    padding: 10px;
   }
 
   .icon {
@@ -96,7 +83,60 @@
   }
 }
 
-/* For landscape orientation on mobile devices */
+/* Mobile devices */
+@media screen and (max-width: 768px) {
+  .video-container {
+    height: auto;
+    padding: 0.5rem;
+  }
+
+  .video {
+    width: 100%;
+    max-height: 50vh;
+    border-radius: 12px;
+  }
+
+  .play-pause-btn {
+    width: 35px;
+    height: 35px;
+    padding: 8px;
+    bottom: 12px;
+    right: 12px;
+  }
+
+  .icon {
+    width: 18px;
+    height: 18px;
+  }
+}
+
+/* Small mobile devices */
+@media screen and (max-width: 480px) {
+  .video-container {
+    padding: 0.5rem;
+  }
+
+  .video {
+    width: 100%;
+    max-height: 40vh;
+    border-radius: 8px;
+  }
+
+  .play-pause-btn {
+    width: 32px;
+    height: 32px;
+    padding: 6px;
+    bottom: 10px;
+    right: 10px;
+  }
+
+  .icon {
+    width: 16px;
+    height: 16px;
+  }
+}
+
+/* Landscape orientation */
 @media screen and (max-height: 480px) and (orientation: landscape) {
   .video-container {
     height: auto;
@@ -104,42 +144,32 @@
   }
 
   .video {
-    height: 85vh;
-    width: auto;
+    width: 90%;
+    max-height: 80vh;
   }
 
   .play-pause-btn {
-    bottom: 10px;
-    right: 10px;
+    bottom: 8px;
+    right: 8px;
   }
 }
 
-/* For larger screens */
-@media screen and (min-width: 1440px) {
-  .video {
-    max-width: 1400px;
-    max-height: 800px;
-  }
-}
-
-/* High contrast mode and reduced motion preferences */
-@media (prefers-reduced-motion: reduce) {
-  .play-pause-btn {
-    transition: none;
-  }
-}
-
-@media (prefers-contrast: high) {
-  .play-pause-btn {
-    background-color: #004466;
-    outline: 2px solid white;
-  }
-}
-
-/* Ensure touch targets are large enough on touch devices */
+/* Touch devices */
 @media (hover: none) and (pointer: coarse) {
   .play-pause-btn {
     min-width: 44px;
     min-height: 44px;
+  }
+}
+
+/* Reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .play-pause-btn {
+    transition: none;
+  }
+  
+  .play-pause-btn:hover,
+  .play-pause-btn:active {
+    transform: none;
   }
 }
