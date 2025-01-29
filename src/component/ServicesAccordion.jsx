@@ -38,7 +38,7 @@ const ServicesAccordion = () => {
 
   return (
     <div className="w-full max-w-[85%] mx-auto p-6">
-      <h2 className="text-5xl font-semibold text-left text-white mb-4 text-shadow-xl">
+      <h2 className="text-5xl font-semibold text-left text-white mb-2 text-shadow-xl">
         Services We Offer
       </h2>
 
@@ -49,42 +49,42 @@ const ServicesAccordion = () => {
       </div>
 
       {/* Accordion */}
-      <div className="space-y-12 mt-8">
+      <div className="space-y-8 mt-6">
         {services.map((service, index) => (
           <div
             key={index}
             onMouseEnter={() => setActiveIndex(index)}
             onMouseLeave={() => setActiveIndex(null)}
-            className={`w-full border rounded-3xl shadow-md overflow-hidden transition-all duration-300 ease-out transform
+            className={`w-full border-zinc-10 rounded-2xl shadow-md overflow-hidden transition-all duration-300 ease-out transform
               ${activeIndex === index ? 'bg-gradient-to-r from-[#6ec1e4] to-[#0b1b33] border-[#6ec1e4] translate-y-[-5px] scale-105' : 'bg-[#0b1b33] border-white hover:border-[#6ec1e4] scale-105'}
             `}
-            style={{ borderWidth: '0.5px' }}
+            style={{ borderWidth: '0.5px', marginBottom: '24px' }}  
           >
             {/* Accordion Header */}
-            <div className="p-5 flex items-center justify-between">
+            <div className="p-4 flex items-center justify-between">  {/* Reduced padding */}
               {/* Left Section: Heading */}
-              <div className="flex-grow flex items-center space-x-4">
-                <img src={Laptop} alt="Laptop" className="w-8 h-8 object-contain" />
-                <span className="text-xl font-semibold text-white">{service.title}</span>
+              <div className="flex-grow flex items-center space-x-3">
+                <img src={Laptop} alt="Laptop" className="w-6 h-6 object-contain" />  {/* Decreased icon size */}
+                <span className="text-xl font-semibold text-white">{service.title}</span>  {/* Increased font size */}
               </div>
 
               {/* Right Section: Chevron and Icons (visible only on hover) */}
-              <div className={`flex items-center space-x-4 transition-all duration-300 ease-out ${activeIndex === index ? 'opacity-100' : 'opacity-0'} justify-center`}>
+              <div className={`flex items-center space-x-3 transition-all duration-300 ease-out ${activeIndex === index ? 'opacity-100' : 'opacity-0'} justify-center`}>
                 <div className="flex justify-center items-center">
-                  <img src={Reactsvg} alt="React Icon" className="w-9 h-9" />
+                  <img src={Reactsvg} alt="React Icon" className="w-8 h-8" style={{ transform: 'translateY(40px)' }} />  {/* Moved down using transform */}
                 </div>
                 <div className="flex justify-center items-center">
-                  <img src={Laravel} alt="Laravel Icon" className="w-9 h-9" />
+                  <img src={Laravel} alt="Laravel Icon" className="w-8 h-8" style={{ transform: 'translateY(40px)' }} />  {/* Moved down using transform */}
                 </div>
                 <div className="flex justify-center items-center">
-                  <img src={Node} alt="Node Icon" className="w-9 h-9" />
+                  <img src={Node} alt="Node Icon" className="w-8 h-8" style={{ transform: 'translateY(40px)' }} />  {/* Moved down using transform */}
                 </div>
                 <div className="flex justify-center items-center">
-                  <img src={Angular} alt="Angular Icon" className="w-9 h-9" />
+                  <img src={Angular} alt="Angular Icon" className="w-8 h-8" style={{ transform: 'translateY(40px)' }} />  {/* Moved down using transform */}
                 </div>
                 {/* Chevron Arrow Icon */}
                 <div className="flex justify-center items-center">
-                  <ChevronRight className="w-7 h-7 text-[#6ec1e4]" />
+                  <ChevronRight className="w-6 h-6 text-[#6ec1e4]" style={{ transform: 'translateY(40px)' }} />  {/* Moved down using transform */}
                 </div>
               </div>
             </div>
@@ -92,16 +92,16 @@ const ServicesAccordion = () => {
             {/* Accordion Content */}
             <div
               className={`px-5 text-white text-sm flex justify-between items-center transition-all duration-300 ease-out
-                ${activeIndex === index ? 'max-h-screen opacity-100 py-4' : 'max-h-0 opacity-0'}`}
+                ${activeIndex === index ? 'max-h-screen opacity-100 py-2' : 'max-h-0 opacity-0'}`}  
               style={{ overflow: 'hidden' }}
             >
               {/* Middle Section: Paragraph (only visible on hover) */}
               <div className={`flex-grow space-y-2 transition-all duration-300 ease-out ${activeIndex === index ? 'opacity-100' : 'opacity-0'}`}>
                 <p className="text-base">
-                  {service.details.split(' ').slice(0, 10).join(' ')}...
+                  {service.details.split(' ').slice(0, 8).join(' ')}...  {/* Reduced number of words displayed initially */}
                 </p>
                 <p className={`text-base transition-all duration-300 ease-out ${activeIndex === index ? 'opacity-100' : 'opacity-0'}`}>
-                  {service.details.split(' ').slice(10).join(' ')}
+                  {service.details.split(' ').slice(8).join(' ')}
                 </p>
               </div>
             </div>
