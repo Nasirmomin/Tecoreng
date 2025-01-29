@@ -1,20 +1,174 @@
-@keyframes moveAlongPath {
-    0% {
-      offset-distance: 0%;
-    }
-    100% {
-      offset-distance: 100%;
-    }
+/* Base styles */
+.hero-section {
+  color: white;
+  padding: 4rem 1rem;
+  background-color: rgb(17, 37, 66);
+  min-height: auto;
+  display: flex;
+  align-items: flex-start;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+  background-color: rgb(17, 37, 66);
+  border-radius: 16px;
+}
+
+/* Rest of the styles remain exactly the same */
+.left-content {
+  flex: 1;
+  max-width: 100%;
+}
+
+.title {
+  font-size: 2.5rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  line-height: 1.2;
+}
+
+.description {
+  font-size: 1.125rem;
+  margin-bottom: 2rem;
+  line-height: 1.6;
+  max-width: 600px;
+}
+
+.hire-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 30px;
+  font-weight: 500;
+  font-size: 1.25rem;
+  text-transform: uppercase;
+  background: #E67553;
+  border-radius: 8px;
+  height: 48px;
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
+}
+
+.hire-btn:hover {
+  background: #ff7c1f;
+}
+
+.right-content {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding-top: 2rem;
+  padding-bottom: 1rem;
+}
+
+.main-image {
+  width: 20rem;
+  height: auto;
+}
+
+.animated-ball {
+  position: absolute;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.5);
+  animation: float 3s infinite ease-in-out;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
+}
+
+/* Mobile Styles - Up to 767px */
+@media screen and (max-width: 767px) {
+  .hero-section {
+    padding: 1rem 0.25rem;
   }
   
-  .animate-infinity {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 48px; /* Adjust size as needed */
-    height: 48px; /* Adjust size as needed */
-    transform: translate(-50%, -50%);
-    offset-path: path('M 100,50 C 0,0 0,100 100,50 C 200,0 200,100 100,50');
-    animation: moveAlongPath 5s linear infinite;
+  .container {
+    padding: 0.5rem 0.25rem;
+    gap: 1.5rem;
+    max-width: 90%;
+    margin: 0 auto;
   }
-  
+
+  .left-content {
+    padding: 0;
+  }
+
+  .title {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    letter-spacing: -0.02em;
+  }
+
+  .description {
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.5;
+    opacity: 0.9;
+  }
+
+  .hire-btn {
+    width: auto;
+    padding: 10px 24px;
+    font-size: 1rem;
+    height: 40px;
+  }
+
+  .right-content {
+    padding-top: 1.5rem;
+    padding-bottom: 0.5rem;
+    justify-content: center;
+  }
+
+  .main-image {
+    width: 16.625rem;  /* Increased from 16rem to 16.625rem (added 10px) */
+  }
+}
+
+/* Extra Small Screens - Up to 480px */
+@media screen and (max-width: 480px) {
+  .hero-section {
+    padding: 0.75rem 0.125rem;
+  }
+
+  .container {
+    padding: 0.5rem 0.125rem;
+    max-width: 85%;
+    gap: 1rem;
+  }
+
+  .title {
+    font-size: 1.75rem;
+  }
+
+  .description {
+    font-size: 0.9375rem;
+  }
+
+  .hire-btn {
+    padding: 8px 20px;
+    font-size: 0.9375rem;
+    height: 36px;
+  }
+
+  .main-image {
+    width: 14.625rem;  /* Increased from 14rem to 14.625rem (added 10px) */
+  }
+
+  .right-content {
+    padding-top: 1rem;
+    padding-bottom: 0.25rem;
+  }
+}
