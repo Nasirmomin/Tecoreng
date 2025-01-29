@@ -1,3 +1,4 @@
+/* Video Container */
 .video-container {
   position: relative;
   width: 100%;
@@ -6,40 +7,37 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 1rem;
+  padding: clamp(1rem, 3vw, 2rem);
   box-sizing: border-box;
 }
 
+/* Video Styling */
 .video {
-  position: relative;
-  width: 100%;
-  max-width: 1400px;
-  height: auto;
-  max-height: 80vh;
-  object-fit: contain;
-  border-radius: 20px;
+  width: min(95%, 1600px); /* Increased width */
+  height: min(85vh, 900px); /* Increased height */
+  object-fit: cover;
+  border-radius: clamp(20px, 4vw, 40px);
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-  aspect-ratio: 16/9;
 }
 
+/* Play/Pause Button */
 .play-pause-btn {
   position: absolute;
-  bottom: 20px;
-  right: 20px;
-  background-color: rgba(0, 92, 153, 0.9);
+  bottom: 80px;
+  right: 100px;
+  background-color: #005c99;
   color: white;
-  padding: 12px;
+  padding: clamp(12px, 2vw, 16px);
   border-radius: 50%;
   border: none;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
   cursor: pointer;
-  transition: transform 0.2s ease;
+  transition: all 0.3s ease;
   z-index: 10;
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 45px;
-  height: 45px;
+  touch-action: manipulation;
 }
 
 .play-pause-btn:hover {
@@ -51,57 +49,55 @@
   transform: scale(0.95);
 }
 
+/* Icon Styling */
 .icon {
-  width: 24px;
-  height: 24px;
+  width: clamp(24px, 4vw, 32px);
+  height: clamp(24px, 4vw, 32px);
 }
 
-/* Tablet devices */
+/* Responsive Design for Small Devices */
 @media screen and (max-width: 1024px) {
   .video-container {
+    height: 500px;
+    padding: 1rem;
+  }
+
+  .video {
+    width: 90%;
     height: auto;
-    min-height: auto;
+    aspect-ratio: 16/9;
+    border-radius: 20px;
+  }
+
+  .play-pause-btn {
+    bottom: 80px;
+    right: 80px;
+    padding: 10px;
+  }
+
+  .icon {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+/* For very small screens */
+@media screen and (max-width: 600px) {
+  .video-container {
+    height: 400px;
     padding: 1rem;
   }
 
   .video {
     width: 100%;
-    max-height: 70vh;
+    height: 300px;
     border-radius: 15px;
   }
 
   .play-pause-btn {
-    width: 40px;
-    height: 40px;
-    bottom: 15px;
-    right: 15px;
-  }
-
-  .icon {
-    width: 20px;
-    height: 20px;
-  }
-}
-
-/* Mobile devices */
-@media screen and (max-width: 768px) {
-  .video-container {
-    height: auto;
-    padding: 0.5rem;
-  }
-
-  .video {
-    width: 100%;
-    max-height: 50vh;
-    border-radius: 12px;
-  }
-
-  .play-pause-btn {
-    width: 35px;
-    height: 35px;
+    bottom: 70px;
+    right: 45px;
     padding: 8px;
-    bottom: 12px;
-    right: 12px;
   }
 
   .icon {
@@ -110,66 +106,50 @@
   }
 }
 
-/* Small mobile devices */
-@media screen and (max-width: 480px) {
+/* For landscape orientation on mobile devices */
+@media screen and (max-width: 480px) and (orientation: landscape) {
   .video-container {
-    padding: 0.5rem;
+    height: 400px;
+    padding: 1rem;
   }
 
   .video {
-    width: 100%;
-    max-height: 40vh;
-    border-radius: 8px;
-  }
-
-  .play-pause-btn {
-    width: 32px;
-    height: 32px;
-    padding: 6px;
-    bottom: 10px;
-    right: 10px;
-  }
-
-  .icon {
-    width: 16px;
-    height: 16px;
-  }
-}
-
-/* Landscape orientation */
-@media screen and (max-height: 480px) and (orientation: landscape) {
-  .video-container {
+    width: 85vw;
     height: auto;
-    padding: 0.5rem;
   }
 
+  .play-pause-btn {
+    bottom: 150px;
+    right: 150px;
+  }
+}
+
+/* For larger screens */
+@media screen and (min-width: 1100px) {
   .video {
-    width: 90%;
-    max-height: 80vh;
-  }
-
-  .play-pause-btn {
-    bottom: 8px;
-    right: 8px;
+    max-width: 1600px; /* Increased max width */
+    max-height: 900px; /* Increased max height */
   }
 }
 
-/* Touch devices */
-@media (hover: none) and (pointer: coarse) {
-  .play-pause-btn {
-    min-width: 44px;
-    min-height: 44px;
-  }
-}
-
-/* Reduced motion preferences */
+/* High contrast mode and reduced motion preferences */
 @media (prefers-reduced-motion: reduce) {
   .play-pause-btn {
     transition: none;
   }
-  
-  .play-pause-btn:hover,
-  .play-pause-btn:active {
-    transform: none;
+}
+
+@media (prefers-contrast: high) {
+  .play-pause-btn {
+    background-color: #004466;
+    outline: 2px solid white;
+  }
+}
+
+/* Ensure touch targets are large enough on touch devices */
+@media (hover: none) and (pointer: coarse) {
+  .play-pause-btn {
+    min-width: 44px;
+    min-height: 44px;
   }
 }
