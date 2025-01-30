@@ -1,174 +1,252 @@
 /* Base styles */
 .hero-section {
   color: white;
-  padding: 4rem 1rem;
+  padding: 2rem;
   background-color: rgb(17, 37, 66);
-  min-height: auto;
+  min-height: 100vh;
   display: flex;
-  align-items: flex-start;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
 }
 
 .container {
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: flex-start;
-  max-width: 1200px;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1440px;
   margin: 0 auto;
-  padding: 2rem 1rem;
+  padding: 2rem;
   background-color: rgb(17, 37, 66);
-  border-radius: 16px;
+  border-radius: 24px;
+  gap: 4rem;
 }
 
-/* Rest of the styles remain exactly the same */
 .left-content {
   flex: 1;
-  max-width: 100%;
+  max-width: 60%;
+  padding-right: 2rem;
 }
 
 .title {
-  font-size: 2.5rem;
+  font-size: 4rem;
   font-weight: 600;
-  margin-bottom: 1.5rem;
-  line-height: 1.2;
+  margin-bottom: 2rem;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
 }
 
 .description {
-  font-size: 1.125rem;
-  margin-bottom: 2rem;
-  line-height: 1.6;
-  max-width: 600px;
+  font-size: 1.25rem;
+  margin-bottom: 3rem;
+  line-height: 1.7;
+  max-width: 800px;
+  opacity: 0.9;
 }
 
 .hire-btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 12px 30px;
+  padding: 16px 40px;
   font-weight: 500;
-  font-size: 1.25rem;
+  font-size: 1.375rem;
   text-transform: uppercase;
   background: #E67553;
-  border-radius: 8px;
-  height: 48px;
+  border-radius: 12px;
+  height: 56px;
   transition: all 0.3s ease;
   border: none;
   cursor: pointer;
+  box-shadow: 0 4px 6px rgba(230, 117, 83, 0.2);
 }
 
 .hire-btn:hover {
   background: #ff7c1f;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(230, 117, 83, 0.3);
 }
 
 .right-content {
   flex: 1;
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
   align-items: center;
   width: 100%;
-  padding-top: 2rem;
-  padding-bottom: 1rem;
+  position: relative;
 }
 
 .main-image {
-  width: 20rem;
+  width: 28rem;
   height: auto;
+  filter: drop-shadow(0 8px 24px rgba(255, 255, 255, 0.1));
 }
 
 .animated-ball {
   position: absolute;
-  width: 2rem;
-  height: 2rem;
+  width: 3rem;
+  height: 3rem;
   border-radius: 50%;
   background: rgba(255, 255, 255, 0.5);
   animation: float 3s infinite ease-in-out;
 }
 
-@keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-20px); }
+.animated-ball:nth-child(1) {
+  top: 10%;
+  right: 15%;
+  animation-delay: 0s;
 }
 
-/* Mobile Styles - Up to 767px */
+.animated-ball:nth-child(2) {
+  bottom: 20%;
+  right: 25%;
+  animation-delay: -1s;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-30px) rotate(10deg); }
+}
+
+/* Laptop and larger screens */
+@media screen and (min-width: 1024px) {
+  .container {
+    padding: 2rem;
+    gap: 6rem;
+  }
+  
+  .title {
+    font-size: 4.5rem;
+  }
+  
+  .description {
+    font-size: 1.375rem;
+  }
+  
+  .main-image {
+    width: 32rem;
+  }
+}
+
+/* Mobile Styles */
+/* Base styles remain the same until mobile breakpoint */
+/* Previous base styles remain unchanged... */
+
+/* Updated Mobile Styles */
+/* Base styles remain unchanged */
+/* ... previous base styles ... */
+
+/* Updated Mobile Styles */
 @media screen and (max-width: 767px) {
   .hero-section {
-    padding: 1rem 0.25rem;
+    padding: 1.5rem 1rem;
+    min-height: auto;
   }
   
   .container {
-    padding: 0.5rem 0.25rem;
-    gap: 1.5rem;
-    max-width: 90%;
-    margin: 0 auto;
-  }
-
-  .left-content {
+    flex-direction: column;
     padding: 0;
+    gap: 4rem;
+    max-width: 100%;
+    margin: 0;
+    background: transparent;
   }
-
+  
+  .left-content {
+    max-width: 100%;
+    padding-right: 0;
+    text-align: left;
+  }
+  
   .title {
-    font-size: 2rem;
+    font-size: 2.25rem;
     margin-bottom: 1rem;
-    letter-spacing: -0.02em;
+    line-height: 1.2;
+    letter-spacing: -0.01em;
   }
-
+  
   .description {
     font-size: 1rem;
-    margin-bottom: 1.5rem;
+    margin-bottom: 2rem;
     line-height: 1.5;
-    opacity: 0.9;
+    opacity: 0.95;
+    max-width: 100%;
   }
-
+  
   .hire-btn {
-    width: auto;
-    padding: 10px 24px;
+    padding: 0.75rem 1.5rem;
     font-size: 1rem;
-    height: 40px;
+    height: 44px;
+    width: auto;
+    border-radius: 8px;
   }
-
+  
   .right-content {
-    padding-top: 1.5rem;
-    padding-bottom: 0.5rem;
     justify-content: center;
+    margin-top: 1rem;
+    padding: 0;
+    width: 100%;
   }
-
+  
   .main-image {
-    width: 16.625rem;  /* Increased from 16rem to 16.625rem (added 10px) */
+    width: 18rem;
+    margin: 0 auto;
   }
 }
 
-/* Extra Small Screens - Up to 480px */
+/* Extra Small Screens */
 @media screen and (max-width: 480px) {
   .hero-section {
-    padding: 0.75rem 0.125rem;
+    padding: 1.25rem 1rem;
   }
-
+  
   .container {
-    padding: 0.5rem 0.125rem;
-    max-width: 85%;
-    gap: 1rem;
+    gap: 3rem;
   }
+  
+  .title {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+  
+  .description {
+    font-size: 0.9375rem;
+    margin-bottom: 1.75rem;
+    line-height: 1.5;
+  }
+  
+  .hire-btn {
+    padding: 0.625rem 1.25rem;
+    font-size: 0.9375rem;
+    height: 40px;
+  }
+  
+  .main-image {
+    width: 16rem;
+  }
+  
+  .animated-ball {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+}
 
+/* Even Smaller Screens */
+@media screen and (max-width: 360px) {
+  .hero-section {
+    padding: 1rem 0.75rem;
+  }
+  
   .title {
     font-size: 1.75rem;
   }
-
+  
   .description {
-    font-size: 0.9375rem;
+    font-size: 0.875rem;
   }
-
-  .hire-btn {
-    padding: 8px 20px;
-    font-size: 0.9375rem;
-    height: 36px;
-  }
-
+  
   .main-image {
-    width: 14.625rem;  /* Increased from 14rem to 14.625rem (added 10px) */
-  }
-
-  .right-content {
-    padding-top: 1rem;
-    padding-bottom: 0.25rem;
+    width: 14rem;
   }
 }

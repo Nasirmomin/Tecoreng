@@ -18,7 +18,7 @@ import GetInTouch from './component/GetInTouch';
 function App() {
   return (
     <>
-    <div className='bg-[#01132E]'>
+    <div className='bg-[#01132E]' style={{margin:0,padding:0}}>
     <Navbar></Navbar>
     <ContinuousVideo/>
       <HeroSection/>
