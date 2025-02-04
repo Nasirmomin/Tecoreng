@@ -17,6 +17,9 @@ module.exports = withTV({
       screens: {
         "2xl": "1400px",
       },
+      fontFamily: {
+        poppins: ["Poppins", "sans-serif"],
+      },
     },
     extend: {
       borderRadius: {

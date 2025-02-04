@@ -37,19 +37,19 @@ const ServicesAccordion = () => {
   const [activeIndex, setActiveIndex] = useState(null);
 
   return (
-    <div className="w-full max-w-[85%] mx-auto p-6">
-      <h2 className="text-5xl font-semibold text-left text-white mb-2 text-shadow-xl">
+    <div className="w-full max-w-[90%] mx-auto p-2 mt-8 sm:mx-10 sm:mt-12">  {/* Adjusted margins for mobile */}
+      <h2 className="text-3xl -ml-2 md:text-6xl font-semibold text-left sm:ml-1 pl-0 text-white mb-3 text-shadow-xl">
         Services We Offer
       </h2>
 
-      <div className="mb-12 text-white text-left text-base">
+      <div className="mb-6 md:ml-2 -ml-2 text-white text-left text-base">
         <p>
           We offer a full range of web app development services that make things better for enterprises and companies we work with. Our team of dedicated mobile app developers fulfills your diverse business requirements through a number of services. We specialise in the following services:
         </p>
       </div>
 
       {/* Accordion */}
-      <div className="space-y-8 mt-6">
+      <div className="space-y-4 md:space-y-8 mt-20 ml-0 sm:ml-6">  {/* Removed left margin for mobile */}
         {services.map((service, index) => (
           <div
             key={index}
@@ -61,11 +61,11 @@ const ServicesAccordion = () => {
             style={{ borderWidth: '0.5px', marginBottom: '24px' }}  
           >
             {/* Accordion Header */}
-            <div className="p-4 flex items-center justify-between">  {/* Reduced padding */}
+            <div className="p-[30px] sm:p-[30px] md:p-[40px] flex items-center justify-between">  {/* Reduced padding */}
               {/* Left Section: Heading */}
               <div className="flex-grow flex items-center space-x-3">
                 <img src={Laptop} alt="Laptop" className="w-6 h-6 object-contain" />  {/* Decreased icon size */}
-                <span className="text-xl font-semibold text-white">{service.title}</span>  {/* Increased font size */}
+                <span className="text-lg font-semibold text-white">{service.title}</span>  {/* Increased font size */}
               </div>
 
               {/* Right Section: Chevron and Icons (visible only on hover) */}
@@ -97,10 +97,10 @@ const ServicesAccordion = () => {
             >
               {/* Middle Section: Paragraph (only visible on hover) */}
               <div className={`flex-grow space-y-2 transition-all duration-300 ease-out ${activeIndex === index ? 'opacity-100' : 'opacity-0'}`}>
-                <p className="text-base">
+                <p className="text-base sm:ml-10">  {/* Added sm:ml-10 for mobile margin */}
                   {service.details.split(' ').slice(0, 8).join(' ')}...  {/* Reduced number of words displayed initially */}
                 </p>
-                <p className={`text-base transition-all duration-300 ease-out ${activeIndex === index ? 'opacity-100' : 'opacity-0'}`}>
+                <p className={`text-base transition-all duration-300 ease-out ${activeIndex === index ? 'opacity-100' : 'opacity-0'} sm:ml-10`}>  {/* Added sm:ml-10 for mobile margin */}
                   {service.details.split(' ').slice(8).join(' ')}
                 </p>
               </div>

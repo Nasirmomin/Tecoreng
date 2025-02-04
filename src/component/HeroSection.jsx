@@ -1,18 +1,20 @@
-import React from "react";
-import img from '../assets/infinite.c057ea68.webp'; // Import the infinite image
-import img2 from '../assets/ball.9fdf93ca.webp'; // Import the ball image
-import '../styles/HeroSection.css'; // Import the CSS file
+import React from 'react';
+import imageforhero from '../assets/image8.webp';
+import Ball from '../../tecoreng.com-svg/Ball.svg';
+import '../styles/HeroSection.css';
 
 const HeroSection = () => {
   return (
-    <div className="hero-section">
-      <div className="container">
+    <div className="bg-[#0B1B33] text-white p-3 sm:p-6 md:p-8">
+      <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center justify-between gap-12">
         {/* Left Content */}
-        <div className="left-content">
-          <h1 className="title">
-            Transform your enterprise with digital innovation
-          </h1>
-          <p className="description">
+        <div className="lg:w-1/2 heroData space-y-6 pl-0 sm:pl-4">
+        <h1 className="Transfer text-xl sm:text-2xl md:text-4xl lg:text-5xl font-bold leading-tight text-left w-full sm:w-auto sm:max-w-none max-w-[80%]">
+  Transfer your enterprise with digital innovation
+</h1>
+
+          
+          <p className="text-base md:text-lg lg:text-xl text-gray-300 leading-relaxed text-left">
             Your success as a market innovator reflects our strides as a unified
             partner. Committed to assisting you in attaining excellence through
             our solutions, we boast a team of adept professionals and dynamic
@@ -21,18 +23,41 @@ const HeroSection = () => {
             on our strategic insights and development processes, and we will
             fuel your concepts to manifest as groundbreaking disruptions.
           </p>
-          <button className="hire-btn">
+          
+          <button
+            className="flex items-center justify-center px-6 py-3 text-white font-semibold rounded-lg transition-all duration-300"
+            style={{
+              willChange: 'transform',
+              transition: 'transform 250ms',
+              background: 'linear-gradient(94.76deg, rgb(244, 123, 85) 1.49%, rgb(255, 61, 0) 95.34%)',
+              transform: 'translateY(-4px)',
+              height: '58px',
+              fontWeight: '700',
+              fontSize: '29px',
+              lineHeight: '30px',
+              textTransform: 'uppercase',
+            }}
+            onMouseEnter={(e) => e.target.style.transform = 'translateY(0)'} // Smooth on hover
+            onMouseLeave={(e) => e.target.style.transform = 'translateY(-4px)'} // Reset on leave
+          >
             HIRE NOW
           </button>
         </div>
 
-        {/* Right Image with Animated Ball */}
-        <div className="right-content">
-          <img src={img} alt="Digital Innovation" className="main-image" />
-          <svg width="0" height="0">
-            <path id="infinityPath" d="M 100,50 C 0,0 0,100 100,50 C 200,0 200,100 100,50" />
-          </svg>
-          <img src={img2} alt="Animated Ball" className="animated-ball" />
+        {/* Right Image */}
+        <div className="lg:w-1/2 relative">
+          <div className="relative w-full h-[400px] lg:h-[500px]">
+            <img
+              src={imageforhero}
+              alt="Digital Innovation"
+              className="w-full h-full object-contain"
+            />
+            <img
+              src={Ball}
+              alt="Floating Ball"
+              className="absolute w-8 h-8 sm:w-16 sm:h-16 floating-ball"
+            />
+          </div>
         </div>
       </div>
     </div>

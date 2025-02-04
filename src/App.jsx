@@ -1,4 +1,3 @@
-
 import ContinuousVideo from './component/ContinuousVideo';
 import EngagementModels from './component/EngagementModels';
 import Footer from './component/Footer';
@@ -7,36 +6,33 @@ import Navbar from './component/Navbar';
 import OurSpecialization from './component/OurSpecialization';
 import ServicesAccordion from './component/ServicesAccordion';
 import SuccessStories from './component/SuccessStories';
-// import ServicesShowcase from './component/ServicesShowcase';
 import WhyChooseUs from './component/WhyChooseUs';
 import ClientAppreciation from './component/ClientAppreciation';
 import HeroSection from './component/HeroSection';
 import OurDevelopmentProcess from './component/OurDevelopmentProcess';
 import Tecoreng from './component/TeorengInsight';
-
 import GetInTouch from './component/GetInTouch';
+
 function App() {
   return (
-    <>
-    <div className='bg-[#01132E]' style={{margin:0,padding:0}}>
-    <Navbar></Navbar>
-    <ContinuousVideo/>
-      <HeroSection/>
-      <ServicesAccordion></ServicesAccordion>
-      <WhyChooseUs/>
-      <OurSpecialization/>
-      <EngagementModels/>
-      <OurDevelopmentProcess/>
-      <SuccessStories/>
-      <IndustriesPage></IndustriesPage>
-      <ClientAppreciation/>
-      <Tecoreng/>
-    <GetInTouch/>
-      
-      <Footer/>
+    <div className='min-w-full bg-[#01132E] overflow-x-hidden'>
+      <Navbar />
+      <main className='w-full'>
+        <ContinuousVideo />
+        <HeroSection />
+        <ServicesAccordion />
+        <WhyChooseUs />
+        <OurSpecialization />
+        <EngagementModels />
+        <OurDevelopmentProcess />
+        <SuccessStories />
+        <IndustriesPage />
+        <ClientAppreciation />
+        <Tecoreng />
+        <GetInTouch />
+      </main>
+      <Footer />
     </div>
-        
-    </>
   );
 }
 

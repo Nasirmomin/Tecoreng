@@ -8,13 +8,14 @@ import Travel from '../assets/Travel.6c977598.webp'
 const IndustriesPage = () => {
     return (
         <div className="bg-[#01132E] text-white p-8 sm:p-12 md:p-16">
-            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-8 text-left">
-                Industries We are Experts In
-            </h1>
+           <h2 className="text-xl -ml-4 sm:text-[24px] md:pl-5 md:text-6xl font-bold mb-8 text-left font-poppins">
+    Industries We are Experts In
+</h2>
 
-            <div className="grid grid-cols-12 gap-6">
+
+            <div className="grid grid-cols-1 sm:grid-cols-12 gap-6">
                 {/* First Row */}
-                <div className="col-span-6 relative rounded-xl overflow-hidden group">
+                <div className="col-span-1 sm:col-span-6 relative rounded-xl overflow-hidden group">
                     <div className="overflow-hidden rounded-xl">
                         <img
                             src={Supply}
@@ -27,7 +28,7 @@ const IndustriesPage = () => {
                     </div>
                 </div>
 
-                <div className="col-span-3 relative rounded-xl overflow-hidden group">
+                <div className="col-span-1 sm:col-span-3 relative rounded-xl overflow-hidden group">
                     <div className="overflow-hidden rounded-xl">
                         <img
                             src={Health}
@@ -40,7 +41,7 @@ const IndustriesPage = () => {
                     </div>
                 </div>
 
-                <div className="col-span-3 relative rounded-xl overflow-hidden group">
+                <div className="col-span-1 sm:col-span-3 relative rounded-xl overflow-hidden group">
                     <div className="overflow-hidden rounded-xl">
                         <img
                             src={Education}
@@ -54,7 +55,7 @@ const IndustriesPage = () => {
                 </div>
 
                 {/* Second Row - Modified width distribution */}
-                <div className="col-span-3 relative rounded-xl overflow-hidden group">
+                <div className="col-span-1 sm:col-span-3 relative rounded-xl overflow-hidden group">
                     <div className="overflow-hidden rounded-xl">
                         <img
                             src={Banking}
@@ -67,7 +68,7 @@ const IndustriesPage = () => {
                     </div>
                 </div>
 
-                <div className="col-span-3 relative rounded-xl overflow-hidden group">
+                <div className="col-span-1 sm:col-span-3 relative rounded-xl overflow-hidden group">
                     <div className="overflow-hidden rounded-xl">
                         <img
                             src={Ecommerce}
@@ -80,7 +81,7 @@ const IndustriesPage = () => {
                     </div>
                 </div>
 
-                <div className="col-span-6 relative rounded-xl overflow-hidden group">
+                <div className="col-span-1 sm:col-span-6 relative rounded-xl overflow-hidden group">
                     <div className="overflow-hidden rounded-xl">
                         <img
                             src={Travel}

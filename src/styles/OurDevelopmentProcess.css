@@ -1,31 +1,60 @@
+/* Main container */
 .development-container {
-  display: flex;
   background-color: #0b1b33;
-  flex-direction: column;
-  position: relative;
-  width: 100vw;
-  max-width: 100%;
-  margin: 0 auto;
-  padding-top: 4rem;
-  padding-bottom: 4rem;
   min-height: 100vh;
+  width: 100%;
+  position: relative;
   overflow-x: hidden;
+  padding: 3.5rem 0;
+ 
 }
 
+/* Ball container and ball styles */
+.ball-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 100;
+}
+
+.ball-entry {
+  position: absolute;
+  top: 130px;
+  left: 55px;
+  width: 40px;
+  height: auto;
+  z-index: 101;
+  margin: 0;
+}
+
+.rolling-ball {
+  position: absolute;
+  width: 85px;
+  height: 85px;
+  transition: all 0.1s linear;
+  z-index: 102;
+}
+
+/* Heading styles */
 .development-heading {
-  font-size: 2.25rem;
   font-weight: bold;
   color: hsl(216, 19%, 95%);
-  text-align: left;
-  margin-bottom: 3rem;
+  margin: 0 0 4rem 30px;
   padding-left: 2rem;
-  margin-left: 5px;
+  position: relative;
+  z-index: 1;
 }
 
+/* Development step styles */
 .development-step {
   display: flex;
   align-items: center;
   margin-bottom: 2rem;
+  position: relative;
+  z-index: 1;
 }
 
 .development-step.left {
@@ -38,19 +67,22 @@
   margin-right: 4rem;
 }
 
+/* Development box styles */
 .development-box {
   background: linear-gradient(to right, #263c6b, #0c2040);
   color: white;
   padding: 1.5rem;
-  width: 630px;
-  height: 250px;
+  width: 700px;
+  height: 280px;
   display: flex;
   align-items: center;
 }
 
 .development-step.left .development-box {
   border-radius: 1.5rem 0 0 1.5rem;
+  margin-bottom: -10px;
   clip-path: polygon(0 14%, 100% 52%, 100% 100%, 0% 100%);
+  margin-left: -10px;
 }
 
 .development-step.right .development-box {
@@ -58,6 +90,7 @@
   clip-path: polygon(0 59%, 100% 14%, 100% 100%, 0% 100%);
 }
 
+/* Image and text container styles */
 .image-container {
   flex: 0 0 150px;
   display: flex;
@@ -78,6 +111,7 @@
 .development-step.left .text-container {
   padding-left: 2rem;
   text-align: left;
+  margin-left:-10px ;
 }
 
 .development-step.right .text-container {
@@ -85,6 +119,7 @@
   text-align: right;
 }
 
+/* Image styles */
 .step-image {
   width: 120px;
   height: 120px;
@@ -94,6 +129,7 @@
   margin-left: 2rem;
 }
 
+/* Text styles */
 .development-box h2 {
   font-size: 1.5rem;
   font-weight: bold;
@@ -106,111 +142,105 @@
   line-height: 1.5;
 }
 
-.svg-container {
-  display: flex;
-  justify-content: left;
-  align-items: center;
-  gap: 0.5px;
-  margin-bottom: -25px;
-  padding-left: 55px;
-}
+/* Media Queries */
+/* All previous CSS remains the same until the media queries */
 
-.ball-entry,
-.ball {
-  width: 40px;
-  height: auto;
-}
-
-.ball {
-  position: relative;
-  left: -35px;
-  opacity: 0;
-  transform: translateY(100px);
-  transition: opacity 0.5s ease, transform 0.5s ease;
-}
-
-.ball.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* Media Queries for Responsiveness */
+/* Media Queries */
 @media screen and (max-width: 768px) {
   .development-heading {
-      font-size: 1.5rem; /* Smaller text size */
-      padding-left: 1rem;
+    font-size: 1.5rem;
+    padding-left: 10px;
+    margin-top: 1px;
+    margin-left: 10px;
+    text-align: left;
   }
 
   .development-step {
-      flex-direction: column;
-      align-items: flex-start;
-      margin-bottom: 1.5rem;
+    margin-bottom: 1.5rem;
+    /* Remove flex-direction: column to maintain horizontal layout */
+    display: flex;
+    align-items: center; /* Keep items centered vertically */
   }
 
-  .development-step.left, 
+  .development-step.left {
+    justify-content: flex-start;
+    margin-left: 1rem; /* Reduced margin but maintained left alignment */
+  }
+
   .development-step.right {
-      margin-left: 0;
-      margin-right: 0;
+    justify-content: flex-end;
+    margin-right: 1rem; /* Reduced margin but maintained right alignment */
   }
 
   .development-box {
-      width: 100%;
-      padding: 1rem;
-      height: auto;
+    width: calc(100% - 2rem);
+    height: auto;
+    min-height: 120px;
+    padding: 1rem;
+  }
+
+  .development-step.left .development-box {
+    clip-path: polygon(0 14%, 100% 52%, 100% 100%, 0% 100%);
+    border-radius: 1.5rem 0 0 1.5rem;
+  }
+
+  .development-step.right .development-box {
+    clip-path: polygon(0 59%, 100% 14%, 100% 100%, 0% 100%);
+    border-radius: 0 1.5rem 1.5rem 0;
   }
 
   .image-container {
-      width: 100%;
-      flex: 0 0 100px;
-      padding: 0.5rem;
-  }
-
-  .text-container {
-      margin-top: 2rem;
-      padding: 1rem;
-      text-align: left;
+    width: 80px;
+    flex: 0 0 80px;
   }
 
   .step-image {
-      width: 80px;
-      height: 80px;
-      margin-left: 0;
+    width: 70px;
+    height: 70px;
+    margin-left: 0;
+  }
+  .development-container{
+    padding: 0;
   }
 
-  .svg-container {
-      display: none; /* Hide SVG on small screens */
+  .ball-container,
+  .rolling-ball,
+  .ball-entry,
+  .ballexit-container {
+    display: none;
   }
 }
 
 @media screen and (max-width: 480px) {
   .development-heading {
-      font-size: 1.25rem; /* Even smaller text for very small screens */
-      padding-left: 0.5rem;
-  }
-
-  .development-box h2 {
-      font-size: 1.25rem;
-  }
-
-  .development-box p {
-      font-size: 0.875rem;
-  }
-
-  .step-image {
-      width: 60px;
-      height: 60px;
+    font-size: 20px;
+    margin: 20px 5px;
   }
 
   .development-box {
-      padding: 0.8rem;
+    width: 280px;
+    padding: 0.8rem;
+    height: 150px;
   }
 
-  .text-container {
-      margin-top: 1rem;
-      padding: 0.5rem;
+  .development-box h2 {
+    font-size: 14px;
+    margin-bottom: 8px;
   }
 
-  .development-step {
-      margin-bottom: 1rem;
+  .development-box p {
+    font-size: 10px;
+    line-height: 1;
+    margin-bottom: 8px;
+    padding-right: 5px;
+  }
+
+  /* Maintain left/right positioning even at smallest breakpoint */
+  .development-step.left {
+    margin-left: 1rem;
+  }
+
+  .development-step.right {
+    margin-right: 0.5rem;
   }
 }

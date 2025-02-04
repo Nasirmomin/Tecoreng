@@ -4,7 +4,7 @@ import { Autoplay } from 'swiper/modules';
 import 'swiper/css';
 
 const CardSlider = () => {
-  const swiperRef = useRef(null); // Create a reference for the Swiper instance
+  const swiperRef = useRef(null);
 
   const cardData = [
     {
@@ -40,49 +40,59 @@ const CardSlider = () => {
   ];
 
   return (
-    <div className="w-full max-w-6xl mx-auto p-8">
-      <div className="mb-8">
-        <h2 className="text-3xl font-bold text-white inline-block pb-2">
-          Appreciation from Clients
-        </h2>
+    <div className="w-full bg-[#0A192F] py-16">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="mb-12">
+          <h2 className="text-3xl md:text-6xl font-bold text-white pb-2 tracking-wide">
+            Appreciation from Clients
+          </h2>
+        </div>
+        <div className="h-[400px]">
+          <Swiper
+            ref={swiperRef}
+            modules={[Autoplay]}
+            spaceBetween={30}
+            slidesPerView={1}
+            autoplay={{
+              delay: 4000,
+              disableOnInteraction: false,
+            }}
+            loop={true}
+            breakpoints={{
+              640: {
+                slidesPerView: 1,
+                spaceBetween: 20
+              },
+              768: {
+                slidesPerView: 2,
+                spaceBetween: 30
+              },
+              1024: {
+                slidesPerView: 3,
+                spaceBetween: 30
+              }
+            }}
+            className="h-full"
+          >
+            {cardData.map((card) => (
+              <SwiperSlide key={card.id} className="h-full">
+                <div className="backdrop-blur-lg bg-opacity-10 bg-white rounded-3xl shadow-xl p-8 
+                  h-full w-full transition-all duration-300
+                  border border-gray-200 border-opacity-10
+                  bg-gradient-to-b from-gray-800/50 to-gray-900/50">
+                  <div className="flex flex-col h-full">
+                    <div>
+                      <h3 className="text-2xl font-bold text-white">{card.title}</h3>
+                      <h4 className="text-lg font-medium text-gray-300 mt-2">{card.company}</h4>
+                    </div>
+                    <p className="text-gray-200 text-base leading-relaxed mt-4 line-clamp-6">{card.description}</p>
+                  </div>
+                </div>
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        </div>
       </div>
-      <Swiper
-        ref={swiperRef} // Attach the swiperRef to Swiper
-        modules={[Autoplay]}
-        spaceBetween={30}
-        slidesPerView={3}
-        autoplay={{
-          delay: 4000,
-          disableOnInteraction: false,
-        }}
-        loop={true}
-        breakpoints={{
-          320: {
-            slidesPerView: 1,
-            spaceBetween: 20
-          },
-          768: {
-            slidesPerView: 2,
-            spaceBetween: 30
-          },
-          1024: {
-            slidesPerView: 3,
-            spaceBetween: 30
-          }
-        }}
-      >
-        {cardData.map((card) => (
-          <SwiperSlide key={card.id}>
-            <div className="bg-gradient-to-b from-gray-100 to-blue-900 rounded-2xl shadow-xl p-6 h-[400px] flex flex-col justify-between transform transition-transform duration-300">
-              <div className="space-y-4">
-                <h3 className="text-xl font-bold text-gray-800">{card.title}</h3>
-                <h4 className="text-lg font-medium text-gray-600">{card.company}</h4>
-                <p className="text-gray-700 text-sm leading-relaxed overflow-hidden line-clamp-6">{card.description}</p>
-              </div>
-            </div>
-          </SwiperSlide>
-        ))}
-      </Swiper>
     </div>
   );
 };

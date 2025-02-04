@@ -1,15 +1,35 @@
-/* Custom styles for smooth transitions */
-.accordion-content {
-    transition: max-height 0.3s ease, padding 0.3s ease;
+
+
+/* Media Queries */
+@media screen and (max-width: 640px) {
+  .services-container {
+    width: 90%;
+    padding: 16px;
   }
-  
-  .accordion-content.closed {
-    max-height: 0;
-    padding: 0;
+
+  .services-heading {
+    font-size: 24px;
+    margin-bottom: 8px;
   }
-  
-  .accordion-content.open {
-    max-height: 200px; /* Adjust based on content length */
-    padding: 1rem;
+
+  .services-description p {
+    font-size: 14px;
   }
-  
+
+  .accordion-header {
+    padding: 20px;
+  }
+
+  .accordion-title {
+    font-size: 18px;
+  }
+
+  .accordion-icon {
+    width: 20px;
+    height: 20px;
+  }
+
+  .accordion-content {
+    font-size: 12px;
+  }
+}

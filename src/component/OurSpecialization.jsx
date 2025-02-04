@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import { 
-  Globe2, 
-  Palette, 
-  Radio, 
-  Smartphone, 
-  Megaphone 
+import {
+  Globe2,
+  Palette,
+  Radio,
+  Smartphone,
+  Megaphone
 } from 'lucide-react';
 
 const services = [
@@ -62,56 +62,71 @@ const OurSpecialization = () => {
   const visibleCards = getVisibleCards();
 
   return (
-    <div className="flex flex-col items-center justify-start w-full py-16 px-4" style={{ backgroundColor: '#01132E' }}>
+    <div className="flex flex-col  py-8 md:py-16 px-0.5 md:px-10" style={{ backgroundColor: '#01132E' }}>
       {/* Header Section */}
-      <div className="max-w-4xl w-full text-center mb-16">
-        <h1 className="text-3xl font-bold mb-6 text-white">Our Specialization</h1>
-        <p className="text-lg leading-relaxed mx-auto max-w-3xl text-gray-300">
-          We offer a full range of web app development services that make things better for enterprises and companies we work with.
-          Our team of dedicated mobile app developers fulfills your diverse business requirements through a number of services.
-          We specialize in the following services:
-        </p>
-      </div>
+      <div className="w-full max-w-6xl mb-8 md:mb-6">
+  <h1 className="text-left text-2xl md:text-3xl lg:text-5xl font-bold mb-4 md:mb-6 text-white pl-4 lg:pl-12">
+    Our Specialization
+  </h1>
+  <p className="text-left text-base md:text-lg text-white pl-4 lg:pl-12">
+    We offer a full range of web app development services that make things better for enterprises and companies we work with.
+    Our team of dedicated mobile app developers fulfills your diverse business requirements through a number of services.
+    We specialize in the following services:
+  </p>
+</div>
+
 
       {/* Cards Section */}
-      <div className="relative w-full max-w-6xl h-[400px] flex items-center justify-center">
+      <div className="relative w-full lg:ml-28 max-w-6xl h-[450px] md:h-[600px] flex items-center justify-center overflow-hidden">
         {visibleCards.map((service, index) => {
           const Icon = service.icon;
+          const isCenter = index === 1;
+
           return (
             <div
               key={service.id}
               onClick={() => setSelectedCard(service.id)}
-              className={`absolute w-[320px] p-6 rounded-xl shadow-xl cursor-pointer transition-all duration-500 hover:scale-105
-                ${
-                  index === 1
-                    ? 'bg-white scale-125 z-30' // Middle card (selected) - larger scale
-                    : 'bg-white scale-75 z-20 opacity-60 hover:opacity-80' // Side cards - smaller scale
-                }`}
+              className={`
+                absolute w-[280px] md:w-[380px] lg:w-[420px] p-4 md:p-8
+                rounded-xl shadow-xl cursor-pointer
+                transition-all duration-500
+                hover:scale-105
+                ${isCenter
+                  ? 'bg-white z-30'
+                  : 'bg-white z-20 opacity-60 hover:opacity-80'
+                }
+                transform
+                ${index === 0 ? '-translate-x-1/2' : ''}
+                ${index === 2 ? 'translate-x-1/2' : ''}
+              `}
               style={{
-                transform: `translateX(${(index - 1) * 340}px) ${
-                  index === 1 ? 'scale(1.25)' : 'scale(0.75)'
-                }`,
+                transform: `
+                  translateX(${(index - 1) * (window.innerWidth < 768 ? 260 : 400)}px)
+                  ${isCenter ? 'scale(1.1)' : 'scale(0.8)'}
+                `,
               }}
             >
-              {/* Icon on top */}
-              <div className="flex justify-center mb-4">
-                <Icon 
-                  size={40} 
-                  className={`${index === 1 ? 'text-blue-600' : 'text-gray-600'}`}
+              <div className="flex justify-center mb-6">
+                <Icon
+                  size={isCenter ? 48 : 40}
+                  className={`${isCenter ? 'text-blue-600' : 'text-gray-600'}`}
                 />
               </div>
-              {/* Title below icon (black color) */}
-              <h2 className={`text-lg font-bold text-center mb-4 text-black`}>
+              <h2 className="text-xl md:text-2xl font-bold text-center mb-4 text-black">
                 {service.title}
               </h2>
-              {/* Description */}
-              <p className={`text-xs leading-relaxed text-center ${index === 1 ? 'text-gray-700' : 'text-gray-600'}`}>
+              <p className={`text-sm md:text-base leading-relaxed text-center
+                ${isCenter ? 'text-gray-700' : 'text-gray-600'}`}
+              >
                 {service.description}
               </p>
             </div>
           );
         })}
       </div>
+
+      {/* Mobile Navigation Dots */}
+      
     </div>
   );
 };

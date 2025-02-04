@@ -1,3 +1,4 @@
+import { FaMapMarkerAlt, FaEnvelope, FaPhoneAlt } from 'react-icons/fa';
 import logo from '../logo.svg';
 
 const Footer = () => {
@@ -104,21 +105,24 @@ const Footer = () => {
                             Contact Us
                         </h5>
                         <ul className="list-unstyled">
-                            <li className="mb-3">
+                            <li className="mb-3 d-flex align-items-center">
+                                <FaMapMarkerAlt style={{ marginRight: '0.5rem' }} />
                                 <p style={{ margin: 0 }}>
                                     <strong>Address 1:</strong>
                                     <br />
                                     Skywalk The Element Godrej Garden, City Rd, Ahmedabad, Gujarat, India.
                                 </p>
                             </li>
-                            <li className="mb-3">
+                            <li className="mb-3 d-flex align-items-center">
+                                <FaMapMarkerAlt style={{ marginRight: '0.5rem' }} />
                                 <p style={{ margin: 0 }}>
                                     <strong>Address 2:</strong>
                                     <br />
                                     1148 S Railroad Ave, Bronxville, New York, USA.
                                 </p>
                             </li>
-                            <li className="mb-3">
+                            <li className="mb-3 d-flex align-items-center">
+                                <FaEnvelope style={{ marginRight: '0.5rem' }} />
                                 <p style={{ margin: 0 }}>
                                     <strong>Email:</strong>{" "}
                                     <a href="mailto:sales@tecoreng.com" style={{ color: "#fff", textDecoration: "none" }}>
@@ -126,7 +130,8 @@ const Footer = () => {
                                     </a>
                                 </p>
                             </li>
-                            <li>
+                            <li className="d-flex align-items-center">
+                                <FaPhoneAlt style={{ marginRight: '0.5rem' }} />
                                 <p style={{ margin: 0 }}>
                                     <strong>Phone:</strong>
                                     <br />
@@ -150,9 +155,10 @@ const Footer = () => {
                     style={{ borderTop: "1px solid #fff", paddingTop: "1rem" }}
                 >
                     <div className="d-flex align-items-center mb-3 mb-md-0">
-                        <a href="/" aria-label="home">
-                            <img src={logo} alt="Tecoreng" style={{ width: "100px" }} />
-                        </a>
+                    <a href="/" aria-label="home" className="d-none d-md-block">
+    <img src={logo} alt="Tecoreng" style={{ width: "100px" }} />
+</a>
+
                     </div>
                     <p className="mb-3 mb-md-0 text-center text-md-right" style={{ fontSize: "0.9rem", flex: 1 }}>
                         © 2025 Tecoreng. All rights reserved.
