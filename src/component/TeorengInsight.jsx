@@ -51,7 +51,7 @@ const Tecoreng = () => {
     <div className="w-full bg-[#0A192F] py-8 md:py-16 ">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="mb-8 md:mb-12">
-          <h2 className="text-3xl md:text-6xl -ml-1 md:ml-3 font-bold text-white pb-2">
+          <h2 className="text-3xl md:text-6xl ml-4 md:ml-3 font-bold text-white pb-2">
             Tecoreng Insight
           </h2>
         </div>

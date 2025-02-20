@@ -270,7 +270,7 @@ const Navbar = () => {
 
                 {/* Stats Section */}
                 {/* Stats Section */}
-                <div className="relative z-8 border border-cyan-400 rounded-3xl w-[95%] md:w-[80%] mx-auto mt-8 md:mt-14 mb-3">
+                <div className="relative z-8 border border-cyan-400 rounded-3xl w-[95%] md:w-[80%] mx-auto mt-8 md:mt-1 mb-3">
                     <div className="backdrop-blur-sm rounded-3xl p-2 md:p-3">
                         <div className="grid grid-cols-3 gap-1 md:gap-6">
                             <div className="text-center">

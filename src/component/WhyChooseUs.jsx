@@ -38,11 +38,11 @@ const WhyChooseUs = () => {
 
   return (
     <div
-      className="w-full min-h-screen p-2 bg-gradient-to-b from-[#112542] to-[#112542]"
+      className="w-full min-h-screen p-2 md:-mb-16 bg-gradient-to-b from-[#112542] to-[#112542]"
     >
       {/* Heading */}
       <h2
-        className="mb-6 heading pl-16 mt-10 text-7xl font-bold tracking-widest uppercase text-transparent stroke-white title-font"
+        className="mb-2 heading pl-16 mt-8 text-7xl font-bold tracking-widest uppercase text-transparent stroke-white title-font"
         style={{
           WebkitTextStroke: "1px white",
         }}
@@ -64,13 +64,13 @@ const WhyChooseUs = () => {
 
       {/* Button */}
       <button
-        className="flex button items-center justify-center px-6 py-2 mb-20  rounded-full bg-gradient-to-r from-orange-400 to-red-600 text-white font-bold text-lg uppercase transform transition-transform duration-300 hover:translate-y-[-4px] ml-16"
+        className="flex button items-center justify-center px-6 py-2 rounded-full bg-gradient-to-r from-orange-400 to-red-600 text-white font-bold text-lg uppercase transform transition-transform duration-300 hover:translate-y-[-4px] ml-16"
       >
         Get in Touch
       </button>
 
       {/* Reason Cards */}
-      <div className="grid  grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6 mt-6 ml-11 mr-10 pl-3">
+      <div className="grid  grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6 mt-6 ml-11  mr-10 pl-3">
         {reasons.map((reason, index) => (
           <div
             key={index}

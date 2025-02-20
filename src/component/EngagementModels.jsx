@@ -43,7 +43,7 @@ const EngagementModels = () => {
         </p>
       </div>
       
-      <div className="grid grid-cols-1 md:grid-cols-3 text-center gap-4 sm:gap-6 px-2.5 sm:px-0">
+      <div className="grid grid-cols-1 md:grid-cols-3 text-center gap-4 mb-7 sm:gap-6 px-2.5 sm:px-0">
         {cardData.map((card, index) => (
           <div
             key={index}

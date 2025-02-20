@@ -116,10 +116,10 @@ const GetInTouch = () => {
                         <div className="mb-6 relative">
                             <input type='text' name="idea" value={formData.idea} onChange={handleChange} className="w-full py-2 border-b-2 border-gray-300 focus:outline-none text-sm sm:text-base" placeholder="Let's Talk About Your Idea" required />
                         </div>
-                        <div className="mb-6 relative">
-                            <div className="lg:max-w-md mx-auto sm:max-w-[80%] sm:ml-4">
+                        <div className="mb-6 md:-ml-14 relative">
+                            <div className="lg:max-w-md  mx-auto sm:max-w-[80%] sm:ml-4">
                                 <ReCAPTCHA
-                                    sitekey="YOUR_GOOGLE_RECAPTCHA_SITE_KEY"
+                                    sitekey="6LcVnswqAAAAADxZhbbgkXWT74LvdHb3LAR8BDwD"
                                     onChange={handleCaptchaChange}
                                     className="mx-auto"
                                 />

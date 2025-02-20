@@ -68,7 +68,7 @@ const OurSpecialization = () => {
   <h1 className="text-left text-2xl md:text-3xl lg:text-5xl font-bold mb-4 md:mb-6 text-white pl-4 lg:pl-12">
     Our Specialization
   </h1>
-  <p className="text-left text-base md:text-lg text-white pl-4 lg:pl-12">
+  <p className="text-left -mb-8 text-base md:text-lg text-white pl-4 lg:pl-12">
     We offer a full range of web app development services that make things better for enterprises and companies we work with.
     Our team of dedicated mobile app developers fulfills your diverse business requirements through a number of services.
     We specialize in the following services:
@@ -77,7 +77,7 @@ const OurSpecialization = () => {
 
 
       {/* Cards Section */}
-      <div className="relative w-full lg:ml-28 max-w-6xl h-[450px] md:h-[600px] flex items-center justify-center overflow-hidden">
+      <div className="relative w-full lg:ml-28 max-w-6xl h-[450px] md:h-[600px] md:-mb-12 flex items-center justify-center overflow-hidden">
         {visibleCards.map((service, index) => {
           const Icon = service.icon;
           const isCenter = index === 1;

@@ -31,7 +31,7 @@ const ServicesAccordion = () => {
     {
       title: "Digital Marketing",
       details: "Leverage our digital marketing services to achieve outstanding sales conversions and maximise ROI.",
-    },
+    }
   ];
 
   const [activeIndex, setActiveIndex] = useState(null);
